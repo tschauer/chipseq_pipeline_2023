@@ -1,0 +1,37 @@
+Module	Section	Sample Name	Source
+deepTools	plotCorrelation	SpearmanCorr_readCounts.tab	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/Output/results/SpearmanCorr_readCounts.tab
+MACS2	all_sections	SRR5479623	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/Output/peaks/SRR5479623_peaks.xls
+MACS2	all_sections	SRR2147247	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/Output/peaks/SRR2147247_peaks.xls
+MACS2	all_sections	SRR6956534	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/Output/peaks/SRR6956534_peaks.xls
+MACS2	all_sections	SRR6956533	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/Output/peaks/SRR6956533_peaks.xls
+MACS2	all_sections	SRR5479624	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/Output/peaks/SRR5479624_peaks.xls
+Picard	DuplicationMetrics	SRR6956533.filtered	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/logs/SRR6956533_picard.out
+Picard	DuplicationMetrics	SRR6956534.filtered	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/logs/SRR6956534_picard.out
+Picard	DuplicationMetrics	SRR2147247.filtered	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/logs/SRR2147247_picard.out
+Picard	DuplicationMetrics	SRR5479623.filtered	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/logs/SRR5479623_picard.out
+Picard	DuplicationMetrics	SRR5479624.filtered	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/logs/SRR5479624_picard.out
+Samtools	idxstats	SRR2147247_idxstats	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/logs/SRR2147247_idxstats.out
+Samtools	idxstats	SRR5479624_idxstats	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/logs/SRR5479624_idxstats.out
+Samtools	idxstats	SRR5479623_idxstats	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/logs/SRR5479623_idxstats.out
+Samtools	idxstats	SRR6956534_idxstats	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/logs/SRR6956534_idxstats.out
+Samtools	idxstats	SRR6956533_idxstats	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/logs/SRR6956533_idxstats.out
+Bowtie 2 / HiSAT2	all_sections	SRR2147247_bowtie2.err	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/logs/SRR2147247_bowtie2.err
+Bowtie 2 / HiSAT2	all_sections	SRR5479623_bowtie2.err	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/logs/SRR5479623_bowtie2.err
+Bowtie 2 / HiSAT2	all_sections	SRR6956533_bowtie2.err	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/logs/SRR6956533_bowtie2.err
+Bowtie 2 / HiSAT2	all_sections	SRR6956534_bowtie2.err	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/logs/SRR6956534_bowtie2.err
+Bowtie 2 / HiSAT2	all_sections	SRR5479624_bowtie2.err	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/logs/SRR5479624_bowtie2.err
+Cutadapt	all_sections	SRR6956534_1	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/logs/SRR6956534_trimgalore.err
+Cutadapt	all_sections	SRR2147247_1	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/logs/SRR2147247_trimgalore.err
+Cutadapt	all_sections	SRR5479623_2	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/logs/SRR5479623_trimgalore.err
+Cutadapt	all_sections	SRR5479623_1	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/logs/SRR5479623_trimgalore.err
+Cutadapt	all_sections	SRR2147247_2	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/logs/SRR2147247_trimgalore.err
+Cutadapt	all_sections	SRR6956534_2	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/logs/SRR6956534_trimgalore.err
+Cutadapt	all_sections	SRR6956533_1	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/logs/SRR6956533_trimgalore.err
+Cutadapt	all_sections	SRR5479624_2	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/logs/SRR5479624_trimgalore.err
+Cutadapt	all_sections	SRR5479624_1	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/logs/SRR5479624_trimgalore.err
+Cutadapt	all_sections	SRR6956533_2	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/logs/SRR6956533_trimgalore.err
+FastQC	all_sections	SRR5479623_1	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/Output/fastqc/SRR5479623_1_fastqc.zip
+FastQC	all_sections	SRR5479624_1	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/Output/fastqc/SRR5479624_1_fastqc.zip
+FastQC	all_sections	SRR2147247_1	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/Output/fastqc/SRR2147247_1_fastqc.zip
+FastQC	all_sections	SRR6956533_1	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/Output/fastqc/SRR6956533_1_fastqc.zip
+FastQC	all_sections	SRR6956534_1	/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/Output/fastqc/SRR6956534_1_fastqc.zip

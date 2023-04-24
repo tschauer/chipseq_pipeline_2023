@@ -1,0 +1,1007 @@
+Building DAG of jobs...
+Job stats:
+job                 count    min threads    max threads
+----------------  -------  -------------  -------------
+TSSmatrix               5              1              1
+TSSplot                 5              1              1
+all                     1              1              1
+bamcoverage             5              1              1
+bowtie2                 5              1              1
+bowtie2_index           1              1              1
+correlation             1              1              1
+fastqc                  5              1              1
+fragsize                5              1              1
+get_blacklist           1              1              1
+get_genome_files        1              1              1
+jaccard                 1              1              1
+multiqc                 1              1              1
+multisummary            1              1              1
+peakcalling             5              1              1
+picard                  5              1              1
+plot_corr               1              1              1
+samtools                5              1              1
+scaled_matrix           5              1              1
+scaled_plot             5              1              1
+trim_galore             5              1              1
+total                  69              1              1
+
+
+[Tue Feb 28 11:10:07 2023]
+rule trim_galore:
+    input: FastQ/SRR6956534_1.fastq.gz, FastQ/SRR6956534_2.fastq.gz
+    output: Output/trimmed/SRR6956534_1_val_1.fq.gz, Output/trimmed/SRR6956534_2_val_2.fq.gz, logs/SRR6956534_trimgalore.out, logs/SRR6956534_trimgalore.err
+    jobid: 29
+    reason: Missing output files: Output/trimmed/SRR6956534_1_val_1.fq.gz, Output/trimmed/SRR6956534_2_val_2.fq.gz
+    wildcards: SRR=SRR6956534
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        trim_galore -j 1 --quality 28 --paired          FastQ/SRR6956534_1.fastq.gz FastQ/SRR6956534_2.fastq.gz > logs/SRR6956534_trimgalore.out 2> logs/SRR6956534_trimgalore.err
+
+        mv SRR6956534_1_val_1.fq.gz Output/trimmed/
+        mv SRR6956534_2_val_2.fq.gz Output/trimmed/
+        mv SRR6956534_1.fastq.gz_trimming_report.txt Output/trimmed/
+        mv SRR6956534_2.fastq.gz_trimming_report.txt Output/trimmed/
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule get_blacklist:
+    output: genome/mm10-blacklist.v2.bed, genome/GRCm38-blacklist.v2.bed
+    jobid: 14
+    reason: Missing output files: genome/GRCm38-blacklist.v2.bed
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        wget -O genome/mm10-blacklist.v2.bed.gz https://github.com/Boyle-Lab/Blacklist/raw/master/lists/mm10-blacklist.v2.bed.gz
+        gunzip genome/mm10-blacklist.v2.bed.gz
+
+        cat genome/mm10-blacklist.v2.bed | sed 's/^chr//' > genome/GRCm38-blacklist.v2.bed
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule fastqc:
+    input: FastQ/SRR5479623_1.fastq.gz
+    output: Output/fastqc/SRR5479623_1_fastqc.html, logs/SRR5479623_fastqc.out, logs/SRR5479623_fastqc.err
+    jobid: 2
+    reason: Missing output files: Output/fastqc/SRR5479623_1_fastqc.html
+    wildcards: SRR=SRR5479623
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        fastqc FastQ/SRR5479623_1.fastq.gz -t 1 -o Output/fastqc > logs/SRR5479623_fastqc.out 2> logs/SRR5479623_fastqc.err
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule fastqc:
+    input: FastQ/SRR5479624_1.fastq.gz
+    output: Output/fastqc/SRR5479624_1_fastqc.html, logs/SRR5479624_fastqc.out, logs/SRR5479624_fastqc.err
+    jobid: 3
+    reason: Missing output files: Output/fastqc/SRR5479624_1_fastqc.html
+    wildcards: SRR=SRR5479624
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        fastqc FastQ/SRR5479624_1.fastq.gz -t 1 -o Output/fastqc > logs/SRR5479624_fastqc.out 2> logs/SRR5479624_fastqc.err
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule fastqc:
+    input: FastQ/SRR6956534_1.fastq.gz
+    output: Output/fastqc/SRR6956534_1_fastqc.html, logs/SRR6956534_fastqc.out, logs/SRR6956534_fastqc.err
+    jobid: 5
+    reason: Missing output files: Output/fastqc/SRR6956534_1_fastqc.html
+    wildcards: SRR=SRR6956534
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        fastqc FastQ/SRR6956534_1.fastq.gz -t 1 -o Output/fastqc > logs/SRR6956534_fastqc.out 2> logs/SRR6956534_fastqc.err
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule trim_galore:
+    input: FastQ/SRR6956533_1.fastq.gz, FastQ/SRR6956533_2.fastq.gz
+    output: Output/trimmed/SRR6956533_1_val_1.fq.gz, Output/trimmed/SRR6956533_2_val_2.fq.gz, logs/SRR6956533_trimgalore.out, logs/SRR6956533_trimgalore.err
+    jobid: 24
+    reason: Missing output files: Output/trimmed/SRR6956533_1_val_1.fq.gz, Output/trimmed/SRR6956533_2_val_2.fq.gz
+    wildcards: SRR=SRR6956533
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        trim_galore -j 1 --quality 28 --paired          FastQ/SRR6956533_1.fastq.gz FastQ/SRR6956533_2.fastq.gz > logs/SRR6956533_trimgalore.out 2> logs/SRR6956533_trimgalore.err
+
+        mv SRR6956533_1_val_1.fq.gz Output/trimmed/
+        mv SRR6956533_2_val_2.fq.gz Output/trimmed/
+        mv SRR6956533_1.fastq.gz_trimming_report.txt Output/trimmed/
+        mv SRR6956533_2.fastq.gz_trimming_report.txt Output/trimmed/
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule trim_galore:
+    input: FastQ/SRR5479623_1.fastq.gz, FastQ/SRR5479623_2.fastq.gz
+    output: Output/trimmed/SRR5479623_1_val_1.fq.gz, Output/trimmed/SRR5479623_2_val_2.fq.gz, logs/SRR5479623_trimgalore.out, logs/SRR5479623_trimgalore.err
+    jobid: 11
+    reason: Missing output files: Output/trimmed/SRR5479623_1_val_1.fq.gz, Output/trimmed/SRR5479623_2_val_2.fq.gz
+    wildcards: SRR=SRR5479623
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        trim_galore -j 1 --quality 28 --paired          FastQ/SRR5479623_1.fastq.gz FastQ/SRR5479623_2.fastq.gz > logs/SRR5479623_trimgalore.out 2> logs/SRR5479623_trimgalore.err
+
+        mv SRR5479623_1_val_1.fq.gz Output/trimmed/
+        mv SRR5479623_2_val_2.fq.gz Output/trimmed/
+        mv SRR5479623_1.fastq.gz_trimming_report.txt Output/trimmed/
+        mv SRR5479623_2.fastq.gz_trimming_report.txt Output/trimmed/
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule get_genome_files:
+    output: genome/genome.fa, genome/genome.fa.fai, genome/genome.gtf
+    jobid: 13
+    reason: Missing output files: genome/genome.fa, genome/genome.gtf
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        wget -O genome/genome.fa.gz ftp://ftp.ensembl.org/pub/release-101/fasta/mus_musculus/dna/Mus_musculus.GRCm38.dna.primary_assembly.fa.gz
+        gunzip genome/genome.fa.gz
+
+        samtools faidx genome/genome.fa
+
+        wget -O genome/genome.gtf.gz ftp://ftp.ensembl.org/pub/release-101/gtf/mus_musculus/Mus_musculus.GRCm38.101.gtf.gz
+        gunzip genome/genome.gtf.gz
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule trim_galore:
+    input: FastQ/SRR2147247_1.fastq.gz, FastQ/SRR2147247_2.fastq.gz
+    output: Output/trimmed/SRR2147247_1_val_1.fq.gz, Output/trimmed/SRR2147247_2_val_2.fq.gz, logs/SRR2147247_trimgalore.out, logs/SRR2147247_trimgalore.err
+    jobid: 34
+    reason: Missing output files: Output/trimmed/SRR2147247_1_val_1.fq.gz, Output/trimmed/SRR2147247_2_val_2.fq.gz
+    wildcards: SRR=SRR2147247
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        trim_galore -j 1 --quality 28 --paired          FastQ/SRR2147247_1.fastq.gz FastQ/SRR2147247_2.fastq.gz > logs/SRR2147247_trimgalore.out 2> logs/SRR2147247_trimgalore.err
+
+        mv SRR2147247_1_val_1.fq.gz Output/trimmed/
+        mv SRR2147247_2_val_2.fq.gz Output/trimmed/
+        mv SRR2147247_1.fastq.gz_trimming_report.txt Output/trimmed/
+        mv SRR2147247_2.fastq.gz_trimming_report.txt Output/trimmed/
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule trim_galore:
+    input: FastQ/SRR5479624_1.fastq.gz, FastQ/SRR5479624_2.fastq.gz
+    output: Output/trimmed/SRR5479624_1_val_1.fq.gz, Output/trimmed/SRR5479624_2_val_2.fq.gz, logs/SRR5479624_trimgalore.out, logs/SRR5479624_trimgalore.err
+    jobid: 19
+    reason: Missing output files: Output/trimmed/SRR5479624_2_val_2.fq.gz, Output/trimmed/SRR5479624_1_val_1.fq.gz
+    wildcards: SRR=SRR5479624
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        trim_galore -j 1 --quality 28 --paired          FastQ/SRR5479624_1.fastq.gz FastQ/SRR5479624_2.fastq.gz > logs/SRR5479624_trimgalore.out 2> logs/SRR5479624_trimgalore.err
+
+        mv SRR5479624_1_val_1.fq.gz Output/trimmed/
+        mv SRR5479624_2_val_2.fq.gz Output/trimmed/
+        mv SRR5479624_1.fastq.gz_trimming_report.txt Output/trimmed/
+        mv SRR5479624_2.fastq.gz_trimming_report.txt Output/trimmed/
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule fastqc:
+    input: FastQ/SRR6956533_1.fastq.gz
+    output: Output/fastqc/SRR6956533_1_fastqc.html, logs/SRR6956533_fastqc.out, logs/SRR6956533_fastqc.err
+    jobid: 4
+    reason: Missing output files: Output/fastqc/SRR6956533_1_fastqc.html
+    wildcards: SRR=SRR6956533
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        fastqc FastQ/SRR6956533_1.fastq.gz -t 1 -o Output/fastqc > logs/SRR6956533_fastqc.out 2> logs/SRR6956533_fastqc.err
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule fastqc:
+    input: FastQ/SRR2147247_1.fastq.gz
+    output: Output/fastqc/SRR2147247_1_fastqc.html, logs/SRR2147247_fastqc.out, logs/SRR2147247_fastqc.err
+    jobid: 6
+    reason: Missing output files: Output/fastqc/SRR2147247_1_fastqc.html
+    wildcards: SRR=SRR2147247
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        fastqc FastQ/SRR2147247_1.fastq.gz -t 1 -o Output/fastqc > logs/SRR2147247_fastqc.out 2> logs/SRR2147247_fastqc.err
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule bowtie2_index:
+    input: genome/genome.fa
+    output: genome/genome.rev.2.bt2
+    jobid: 12
+    reason: Missing output files: genome/genome.rev.2.bt2; Input files updated by another job: genome/genome.fa
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        bowtie2-build --threads 1 genome/genome.fa genome/genome
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule bowtie2:
+    input: Output/trimmed/SRR6956534_1_val_1.fq.gz, Output/trimmed/SRR6956534_2_val_2.fq.gz, genome/genome.rev.2.bt2
+    output: Output/BAM/SRR6956534.mapped.bam, logs/SRR6956534_bowtie2.err
+    jobid: 28
+    reason: Missing output files: Output/BAM/SRR6956534.mapped.bam; Input files updated by another job: Output/trimmed/SRR6956534_1_val_1.fq.gz, Output/trimmed/SRR6956534_2_val_2.fq.gz, genome/genome.rev.2.bt2
+    wildcards: SRR=SRR6956534
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        bowtie2 -x genome/genome --threads 1         --local --very-sensitive-local --no-unal         --no-mixed --no-discordant --dovetail -I 10 -X 700         -1 Output/trimmed/SRR6956534_1_val_1.fq.gz -2 Output/trimmed/SRR6956534_2_val_2.fq.gz 2> logs/SRR6956534_bowtie2.err | samtools view -Sbh -o Output/BAM/SRR6956534.mapped.bam
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule bowtie2:
+    input: Output/trimmed/SRR2147247_1_val_1.fq.gz, Output/trimmed/SRR2147247_2_val_2.fq.gz, genome/genome.rev.2.bt2
+    output: Output/BAM/SRR2147247.mapped.bam, logs/SRR2147247_bowtie2.err
+    jobid: 33
+    reason: Missing output files: Output/BAM/SRR2147247.mapped.bam; Input files updated by another job: Output/trimmed/SRR2147247_2_val_2.fq.gz, Output/trimmed/SRR2147247_1_val_1.fq.gz, genome/genome.rev.2.bt2
+    wildcards: SRR=SRR2147247
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        bowtie2 -x genome/genome --threads 1         --local --very-sensitive-local --no-unal         --no-mixed --no-discordant --dovetail -I 10 -X 700         -1 Output/trimmed/SRR2147247_1_val_1.fq.gz -2 Output/trimmed/SRR2147247_2_val_2.fq.gz 2> logs/SRR2147247_bowtie2.err | samtools view -Sbh -o Output/BAM/SRR2147247.mapped.bam
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule bowtie2:
+    input: Output/trimmed/SRR5479624_1_val_1.fq.gz, Output/trimmed/SRR5479624_2_val_2.fq.gz, genome/genome.rev.2.bt2
+    output: Output/BAM/SRR5479624.mapped.bam, logs/SRR5479624_bowtie2.err
+    jobid: 18
+    reason: Missing output files: Output/BAM/SRR5479624.mapped.bam; Input files updated by another job: Output/trimmed/SRR5479624_2_val_2.fq.gz, Output/trimmed/SRR5479624_1_val_1.fq.gz, genome/genome.rev.2.bt2
+    wildcards: SRR=SRR5479624
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        bowtie2 -x genome/genome --threads 1         --local --very-sensitive-local --no-unal         --no-mixed --no-discordant --dovetail -I 10 -X 700         -1 Output/trimmed/SRR5479624_1_val_1.fq.gz -2 Output/trimmed/SRR5479624_2_val_2.fq.gz 2> logs/SRR5479624_bowtie2.err | samtools view -Sbh -o Output/BAM/SRR5479624.mapped.bam
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule bowtie2:
+    input: Output/trimmed/SRR6956533_1_val_1.fq.gz, Output/trimmed/SRR6956533_2_val_2.fq.gz, genome/genome.rev.2.bt2
+    output: Output/BAM/SRR6956533.mapped.bam, logs/SRR6956533_bowtie2.err
+    jobid: 23
+    reason: Missing output files: Output/BAM/SRR6956533.mapped.bam; Input files updated by another job: Output/trimmed/SRR6956533_1_val_1.fq.gz, Output/trimmed/SRR6956533_2_val_2.fq.gz, genome/genome.rev.2.bt2
+    wildcards: SRR=SRR6956533
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        bowtie2 -x genome/genome --threads 1         --local --very-sensitive-local --no-unal         --no-mixed --no-discordant --dovetail -I 10 -X 700         -1 Output/trimmed/SRR6956533_1_val_1.fq.gz -2 Output/trimmed/SRR6956533_2_val_2.fq.gz 2> logs/SRR6956533_bowtie2.err | samtools view -Sbh -o Output/BAM/SRR6956533.mapped.bam
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule bowtie2:
+    input: Output/trimmed/SRR5479623_1_val_1.fq.gz, Output/trimmed/SRR5479623_2_val_2.fq.gz, genome/genome.rev.2.bt2
+    output: Output/BAM/SRR5479623.mapped.bam, logs/SRR5479623_bowtie2.err
+    jobid: 10
+    reason: Missing output files: Output/BAM/SRR5479623.mapped.bam; Input files updated by another job: Output/trimmed/SRR5479623_1_val_1.fq.gz, Output/trimmed/SRR5479623_2_val_2.fq.gz, genome/genome.rev.2.bt2
+    wildcards: SRR=SRR5479623
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        bowtie2 -x genome/genome --threads 1         --local --very-sensitive-local --no-unal         --no-mixed --no-discordant --dovetail -I 10 -X 700         -1 Output/trimmed/SRR5479623_1_val_1.fq.gz -2 Output/trimmed/SRR5479623_2_val_2.fq.gz 2> logs/SRR5479623_bowtie2.err | samtools view -Sbh -o Output/BAM/SRR5479623.mapped.bam
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule samtools:
+    input: Output/BAM/SRR2147247.mapped.bam
+    output: Output/BAM/SRR2147247.filtered.bam, Output/BAM/SRR2147247.filtered.bam.bai, logs/SRR2147247_samtools.out
+    jobid: 32
+    reason: Missing output files: Output/BAM/SRR2147247.filtered.bam; Input files updated by another job: Output/BAM/SRR2147247.mapped.bam
+    wildcards: SRR=SRR2147247
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        samtools view -bS -@ 1 -q 12 Output/BAM/SRR2147247.mapped.bam |         samtools sort -@ 1 - | tee Output/BAM/SRR2147247.filtered.bam |         samtools index - Output/BAM/SRR2147247.filtered.bam.bai > logs/SRR2147247_samtools.out
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule samtools:
+    input: Output/BAM/SRR5479624.mapped.bam
+    output: Output/BAM/SRR5479624.filtered.bam, Output/BAM/SRR5479624.filtered.bam.bai, logs/SRR5479624_samtools.out
+    jobid: 17
+    reason: Missing output files: Output/BAM/SRR5479624.filtered.bam; Input files updated by another job: Output/BAM/SRR5479624.mapped.bam
+    wildcards: SRR=SRR5479624
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        samtools view -bS -@ 1 -q 12 Output/BAM/SRR5479624.mapped.bam |         samtools sort -@ 1 - | tee Output/BAM/SRR5479624.filtered.bam |         samtools index - Output/BAM/SRR5479624.filtered.bam.bai > logs/SRR5479624_samtools.out
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule samtools:
+    input: Output/BAM/SRR6956533.mapped.bam
+    output: Output/BAM/SRR6956533.filtered.bam, Output/BAM/SRR6956533.filtered.bam.bai, logs/SRR6956533_samtools.out
+    jobid: 22
+    reason: Missing output files: Output/BAM/SRR6956533.filtered.bam; Input files updated by another job: Output/BAM/SRR6956533.mapped.bam
+    wildcards: SRR=SRR6956533
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        samtools view -bS -@ 1 -q 12 Output/BAM/SRR6956533.mapped.bam |         samtools sort -@ 1 - | tee Output/BAM/SRR6956533.filtered.bam |         samtools index - Output/BAM/SRR6956533.filtered.bam.bai > logs/SRR6956533_samtools.out
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule samtools:
+    input: Output/BAM/SRR5479623.mapped.bam
+    output: Output/BAM/SRR5479623.filtered.bam, Output/BAM/SRR5479623.filtered.bam.bai, logs/SRR5479623_samtools.out
+    jobid: 9
+    reason: Missing output files: Output/BAM/SRR5479623.filtered.bam; Input files updated by another job: Output/BAM/SRR5479623.mapped.bam
+    wildcards: SRR=SRR5479623
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        samtools view -bS -@ 1 -q 12 Output/BAM/SRR5479623.mapped.bam |         samtools sort -@ 1 - | tee Output/BAM/SRR5479623.filtered.bam |         samtools index - Output/BAM/SRR5479623.filtered.bam.bai > logs/SRR5479623_samtools.out
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule samtools:
+    input: Output/BAM/SRR6956534.mapped.bam
+    output: Output/BAM/SRR6956534.filtered.bam, Output/BAM/SRR6956534.filtered.bam.bai, logs/SRR6956534_samtools.out
+    jobid: 27
+    reason: Missing output files: Output/BAM/SRR6956534.filtered.bam; Input files updated by another job: Output/BAM/SRR6956534.mapped.bam
+    wildcards: SRR=SRR6956534
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        samtools view -bS -@ 1 -q 12 Output/BAM/SRR6956534.mapped.bam |         samtools sort -@ 1 - | tee Output/BAM/SRR6956534.filtered.bam |         samtools index - Output/BAM/SRR6956534.filtered.bam.bai > logs/SRR6956534_samtools.out
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule picard:
+    input: Output/BAM/SRR2147247.filtered.bam
+    output: Output/BAM/SRR2147247.removeddup.bam, Output/BAM/SRR2147247.removeddup.bam.bai, logs/SRR2147247_picard.out, logs/SRR2147247_picard.err, logs/SRR2147247_idxstats.out
+    jobid: 31
+    reason: Missing output files: Output/BAM/SRR2147247.removeddup.bam; Input files updated by another job: Output/BAM/SRR2147247.filtered.bam
+    wildcards: SRR=SRR2147247
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        picard MarkDuplicates -I Output/BAM/SRR2147247.filtered.bam -O Output/BAM/SRR2147247.removeddup.bam         -CREATE_INDEX TRUE -REMOVE_DUPLICATES TRUE         -METRICS_FILE logs/SRR2147247_picard.out 2> logs/SRR2147247_picard.err
+
+        samtools index Output/BAM/SRR2147247.removeddup.bam
+        samtools idxstats Output/BAM/SRR2147247.removeddup.bam | head -n 22 | sort -k 3,3nr > logs/SRR2147247_idxstats.out
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule picard:
+    input: Output/BAM/SRR5479624.filtered.bam
+    output: Output/BAM/SRR5479624.removeddup.bam, Output/BAM/SRR5479624.removeddup.bam.bai, logs/SRR5479624_picard.out, logs/SRR5479624_picard.err, logs/SRR5479624_idxstats.out
+    jobid: 16
+    reason: Missing output files: Output/BAM/SRR5479624.removeddup.bam; Input files updated by another job: Output/BAM/SRR5479624.filtered.bam
+    wildcards: SRR=SRR5479624
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        picard MarkDuplicates -I Output/BAM/SRR5479624.filtered.bam -O Output/BAM/SRR5479624.removeddup.bam         -CREATE_INDEX TRUE -REMOVE_DUPLICATES TRUE         -METRICS_FILE logs/SRR5479624_picard.out 2> logs/SRR5479624_picard.err
+
+        samtools index Output/BAM/SRR5479624.removeddup.bam
+        samtools idxstats Output/BAM/SRR5479624.removeddup.bam | head -n 22 | sort -k 3,3nr > logs/SRR5479624_idxstats.out
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule picard:
+    input: Output/BAM/SRR6956533.filtered.bam
+    output: Output/BAM/SRR6956533.removeddup.bam, Output/BAM/SRR6956533.removeddup.bam.bai, logs/SRR6956533_picard.out, logs/SRR6956533_picard.err, logs/SRR6956533_idxstats.out
+    jobid: 21
+    reason: Missing output files: Output/BAM/SRR6956533.removeddup.bam; Input files updated by another job: Output/BAM/SRR6956533.filtered.bam
+    wildcards: SRR=SRR6956533
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        picard MarkDuplicates -I Output/BAM/SRR6956533.filtered.bam -O Output/BAM/SRR6956533.removeddup.bam         -CREATE_INDEX TRUE -REMOVE_DUPLICATES TRUE         -METRICS_FILE logs/SRR6956533_picard.out 2> logs/SRR6956533_picard.err
+
+        samtools index Output/BAM/SRR6956533.removeddup.bam
+        samtools idxstats Output/BAM/SRR6956533.removeddup.bam | head -n 22 | sort -k 3,3nr > logs/SRR6956533_idxstats.out
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule picard:
+    input: Output/BAM/SRR5479623.filtered.bam
+    output: Output/BAM/SRR5479623.removeddup.bam, Output/BAM/SRR5479623.removeddup.bam.bai, logs/SRR5479623_picard.out, logs/SRR5479623_picard.err, logs/SRR5479623_idxstats.out
+    jobid: 8
+    reason: Missing output files: Output/BAM/SRR5479623.removeddup.bam; Input files updated by another job: Output/BAM/SRR5479623.filtered.bam
+    wildcards: SRR=SRR5479623
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        picard MarkDuplicates -I Output/BAM/SRR5479623.filtered.bam -O Output/BAM/SRR5479623.removeddup.bam         -CREATE_INDEX TRUE -REMOVE_DUPLICATES TRUE         -METRICS_FILE logs/SRR5479623_picard.out 2> logs/SRR5479623_picard.err
+
+        samtools index Output/BAM/SRR5479623.removeddup.bam
+        samtools idxstats Output/BAM/SRR5479623.removeddup.bam | head -n 22 | sort -k 3,3nr > logs/SRR5479623_idxstats.out
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule picard:
+    input: Output/BAM/SRR6956534.filtered.bam
+    output: Output/BAM/SRR6956534.removeddup.bam, Output/BAM/SRR6956534.removeddup.bam.bai, logs/SRR6956534_picard.out, logs/SRR6956534_picard.err, logs/SRR6956534_idxstats.out
+    jobid: 26
+    reason: Missing output files: Output/BAM/SRR6956534.removeddup.bam; Input files updated by another job: Output/BAM/SRR6956534.filtered.bam
+    wildcards: SRR=SRR6956534
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        picard MarkDuplicates -I Output/BAM/SRR6956534.filtered.bam -O Output/BAM/SRR6956534.removeddup.bam         -CREATE_INDEX TRUE -REMOVE_DUPLICATES TRUE         -METRICS_FILE logs/SRR6956534_picard.out 2> logs/SRR6956534_picard.err
+
+        samtools index Output/BAM/SRR6956534.removeddup.bam
+        samtools idxstats Output/BAM/SRR6956534.removeddup.bam | head -n 22 | sort -k 3,3nr > logs/SRR6956534_idxstats.out
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule fragsize:
+    input: Output/BAM/SRR5479624.removeddup.bam
+    output: Output/fragsize/SRR5479624.fragmentsize.png, logs/SRR5479624_frags.out
+    jobid: 61
+    reason: Missing output files: Output/fragsize/SRR5479624.fragmentsize.png; Input files updated by another job: Output/BAM/SRR5479624.removeddup.bam
+    wildcards: SRR=SRR5479624
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        bamPEFragmentSize -hist Output/fragsize/SRR5479624.fragmentsize.png -p 1         -T "Fragment size" --maxFragmentLength 800         --samplesLabel SRR5479624         -b Output/BAM/SRR5479624.removeddup.bam > logs/SRR5479624_frags.out
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule bamcoverage:
+    input: Output/BAM/SRR6956534.removeddup.bam, genome/GRCm38-blacklist.v2.bed
+    output: Output/coverage/SRR6956534.coverage.bw, logs/SRR6956534_bamcov.out, logs/SRR6956534_bamcov.err
+    jobid: 46
+    reason: Missing output files: Output/coverage/SRR6956534.coverage.bw; Input files updated by another job: genome/GRCm38-blacklist.v2.bed, Output/BAM/SRR6956534.removeddup.bam
+    wildcards: SRR=SRR6956534
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        bamCoverage --bam Output/BAM/SRR6956534.removeddup.bam -o Output/coverage/SRR6956534.coverage.bw         --blackListFileName genome/GRCm38-blacklist.v2.bed         --binSize 20 --smoothLength 60 --extendReads          --maxFragmentLength 700 --minMappingQuality 12         --normalizeUsing "CPM" --numberOfProcessors 1         > logs/SRR6956534_bamcov.out 2> logs/SRR6956534_bamcov.err
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule fragsize:
+    input: Output/BAM/SRR6956534.removeddup.bam
+    output: Output/fragsize/SRR6956534.fragmentsize.png, logs/SRR6956534_frags.out
+    jobid: 63
+    reason: Missing output files: Output/fragsize/SRR6956534.fragmentsize.png; Input files updated by another job: Output/BAM/SRR6956534.removeddup.bam
+    wildcards: SRR=SRR6956534
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        bamPEFragmentSize -hist Output/fragsize/SRR6956534.fragmentsize.png -p 1         -T "Fragment size" --maxFragmentLength 800         --samplesLabel SRR6956534         -b Output/BAM/SRR6956534.removeddup.bam > logs/SRR6956534_frags.out
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule peakcalling:
+    input: Output/BAM/SRR6956533.removeddup.bam, genome/GRCm38-blacklist.v2.bed
+    output: Output/peaks/SRR6956533_filtered.bed, logs/SRR6956533_macs2.out, logs/SRR6956533_macs2.err
+    jobid: 20
+    reason: Missing output files: Output/peaks/SRR6956533_filtered.bed; Input files updated by another job: Output/BAM/SRR6956533.removeddup.bam, genome/GRCm38-blacklist.v2.bed
+    wildcards: SRR=SRR6956533
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        macs2 callpeak --treatment Output/BAM/SRR6956533.removeddup.bam --name SRR6956533         --gsize 1.87e9 --format BAMPE --nomodel --nolambda         --cutoff-analysis --broad --broad-cutoff 0.001 --pvalue 0.001         --outdir Output/peaks > logs/SRR6956533_macs2.out 2> logs/SRR6956533_macs2.err
+
+        bedtools intersect -v -a "Output/peaks/SRR6956533_peaks.broadPeak"         -b genome/GRCm38-blacklist.v2.bed | cut -f 1,2,3 > Output/peaks/SRR6956533_filtered.bed
+
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule bamcoverage:
+    input: Output/BAM/SRR5479623.removeddup.bam, genome/GRCm38-blacklist.v2.bed
+    output: Output/coverage/SRR5479623.coverage.bw, logs/SRR5479623_bamcov.out, logs/SRR5479623_bamcov.err
+    jobid: 37
+    reason: Missing output files: Output/coverage/SRR5479623.coverage.bw; Input files updated by another job: genome/GRCm38-blacklist.v2.bed, Output/BAM/SRR5479623.removeddup.bam
+    wildcards: SRR=SRR5479623
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        bamCoverage --bam Output/BAM/SRR5479623.removeddup.bam -o Output/coverage/SRR5479623.coverage.bw         --blackListFileName genome/GRCm38-blacklist.v2.bed         --binSize 20 --smoothLength 60 --extendReads          --maxFragmentLength 700 --minMappingQuality 12         --normalizeUsing "CPM" --numberOfProcessors 1         > logs/SRR5479623_bamcov.out 2> logs/SRR5479623_bamcov.err
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule peakcalling:
+    input: Output/BAM/SRR5479623.removeddup.bam, genome/GRCm38-blacklist.v2.bed
+    output: Output/peaks/SRR5479623_filtered.bed, logs/SRR5479623_macs2.out, logs/SRR5479623_macs2.err
+    jobid: 7
+    reason: Missing output files: Output/peaks/SRR5479623_filtered.bed; Input files updated by another job: genome/GRCm38-blacklist.v2.bed, Output/BAM/SRR5479623.removeddup.bam
+    wildcards: SRR=SRR5479623
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        macs2 callpeak --treatment Output/BAM/SRR5479623.removeddup.bam --name SRR5479623         --gsize 1.87e9 --format BAMPE --nomodel --nolambda         --cutoff-analysis --broad --broad-cutoff 0.001 --pvalue 0.001         --outdir Output/peaks > logs/SRR5479623_macs2.out 2> logs/SRR5479623_macs2.err
+
+        bedtools intersect -v -a "Output/peaks/SRR5479623_peaks.broadPeak"         -b genome/GRCm38-blacklist.v2.bed | cut -f 1,2,3 > Output/peaks/SRR5479623_filtered.bed
+
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule bamcoverage:
+    input: Output/BAM/SRR6956533.removeddup.bam, genome/GRCm38-blacklist.v2.bed
+    output: Output/coverage/SRR6956533.coverage.bw, logs/SRR6956533_bamcov.out, logs/SRR6956533_bamcov.err
+    jobid: 43
+    reason: Missing output files: Output/coverage/SRR6956533.coverage.bw; Input files updated by another job: Output/BAM/SRR6956533.removeddup.bam, genome/GRCm38-blacklist.v2.bed
+    wildcards: SRR=SRR6956533
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        bamCoverage --bam Output/BAM/SRR6956533.removeddup.bam -o Output/coverage/SRR6956533.coverage.bw         --blackListFileName genome/GRCm38-blacklist.v2.bed         --binSize 20 --smoothLength 60 --extendReads          --maxFragmentLength 700 --minMappingQuality 12         --normalizeUsing "CPM" --numberOfProcessors 1         > logs/SRR6956533_bamcov.out 2> logs/SRR6956533_bamcov.err
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule peakcalling:
+    input: Output/BAM/SRR2147247.removeddup.bam, genome/GRCm38-blacklist.v2.bed
+    output: Output/peaks/SRR2147247_filtered.bed, logs/SRR2147247_macs2.out, logs/SRR2147247_macs2.err
+    jobid: 30
+    reason: Missing output files: Output/peaks/SRR2147247_filtered.bed; Input files updated by another job: genome/GRCm38-blacklist.v2.bed, Output/BAM/SRR2147247.removeddup.bam
+    wildcards: SRR=SRR2147247
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        macs2 callpeak --treatment Output/BAM/SRR2147247.removeddup.bam --name SRR2147247         --gsize 1.87e9 --format BAMPE --nomodel --nolambda         --cutoff-analysis --broad --broad-cutoff 0.001 --pvalue 0.001         --outdir Output/peaks > logs/SRR2147247_macs2.out 2> logs/SRR2147247_macs2.err
+
+        bedtools intersect -v -a "Output/peaks/SRR2147247_peaks.broadPeak"         -b genome/GRCm38-blacklist.v2.bed | cut -f 1,2,3 > Output/peaks/SRR2147247_filtered.bed
+
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule peakcalling:
+    input: Output/BAM/SRR5479624.removeddup.bam, genome/GRCm38-blacklist.v2.bed
+    output: Output/peaks/SRR5479624_filtered.bed, logs/SRR5479624_macs2.out, logs/SRR5479624_macs2.err
+    jobid: 15
+    reason: Missing output files: Output/peaks/SRR5479624_filtered.bed; Input files updated by another job: genome/GRCm38-blacklist.v2.bed, Output/BAM/SRR5479624.removeddup.bam
+    wildcards: SRR=SRR5479624
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        macs2 callpeak --treatment Output/BAM/SRR5479624.removeddup.bam --name SRR5479624         --gsize 1.87e9 --format BAMPE --nomodel --nolambda         --cutoff-analysis --broad --broad-cutoff 0.001 --pvalue 0.001         --outdir Output/peaks > logs/SRR5479624_macs2.out 2> logs/SRR5479624_macs2.err
+
+        bedtools intersect -v -a "Output/peaks/SRR5479624_peaks.broadPeak"         -b genome/GRCm38-blacklist.v2.bed | cut -f 1,2,3 > Output/peaks/SRR5479624_filtered.bed
+
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule fragsize:
+    input: Output/BAM/SRR5479623.removeddup.bam
+    output: Output/fragsize/SRR5479623.fragmentsize.png, logs/SRR5479623_frags.out
+    jobid: 60
+    reason: Missing output files: Output/fragsize/SRR5479623.fragmentsize.png; Input files updated by another job: Output/BAM/SRR5479623.removeddup.bam
+    wildcards: SRR=SRR5479623
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        bamPEFragmentSize -hist Output/fragsize/SRR5479623.fragmentsize.png -p 1         -T "Fragment size" --maxFragmentLength 800         --samplesLabel SRR5479623         -b Output/BAM/SRR5479623.removeddup.bam > logs/SRR5479623_frags.out
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule fragsize:
+    input: Output/BAM/SRR6956533.removeddup.bam
+    output: Output/fragsize/SRR6956533.fragmentsize.png, logs/SRR6956533_frags.out
+    jobid: 62
+    reason: Missing output files: Output/fragsize/SRR6956533.fragmentsize.png; Input files updated by another job: Output/BAM/SRR6956533.removeddup.bam
+    wildcards: SRR=SRR6956533
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        bamPEFragmentSize -hist Output/fragsize/SRR6956533.fragmentsize.png -p 1         -T "Fragment size" --maxFragmentLength 800         --samplesLabel SRR6956533         -b Output/BAM/SRR6956533.removeddup.bam > logs/SRR6956533_frags.out
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule fragsize:
+    input: Output/BAM/SRR2147247.removeddup.bam
+    output: Output/fragsize/SRR2147247.fragmentsize.png, logs/SRR2147247_frags.out
+    jobid: 64
+    reason: Missing output files: Output/fragsize/SRR2147247.fragmentsize.png; Input files updated by another job: Output/BAM/SRR2147247.removeddup.bam
+    wildcards: SRR=SRR2147247
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        bamPEFragmentSize -hist Output/fragsize/SRR2147247.fragmentsize.png -p 1         -T "Fragment size" --maxFragmentLength 800         --samplesLabel SRR2147247         -b Output/BAM/SRR2147247.removeddup.bam > logs/SRR2147247_frags.out
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule bamcoverage:
+    input: Output/BAM/SRR2147247.removeddup.bam, genome/GRCm38-blacklist.v2.bed
+    output: Output/coverage/SRR2147247.coverage.bw, logs/SRR2147247_bamcov.out, logs/SRR2147247_bamcov.err
+    jobid: 49
+    reason: Missing output files: Output/coverage/SRR2147247.coverage.bw; Input files updated by another job: genome/GRCm38-blacklist.v2.bed, Output/BAM/SRR2147247.removeddup.bam
+    wildcards: SRR=SRR2147247
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        bamCoverage --bam Output/BAM/SRR2147247.removeddup.bam -o Output/coverage/SRR2147247.coverage.bw         --blackListFileName genome/GRCm38-blacklist.v2.bed         --binSize 20 --smoothLength 60 --extendReads          --maxFragmentLength 700 --minMappingQuality 12         --normalizeUsing "CPM" --numberOfProcessors 1         > logs/SRR2147247_bamcov.out 2> logs/SRR2147247_bamcov.err
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule bamcoverage:
+    input: Output/BAM/SRR5479624.removeddup.bam, genome/GRCm38-blacklist.v2.bed
+    output: Output/coverage/SRR5479624.coverage.bw, logs/SRR5479624_bamcov.out, logs/SRR5479624_bamcov.err
+    jobid: 40
+    reason: Missing output files: Output/coverage/SRR5479624.coverage.bw; Input files updated by another job: genome/GRCm38-blacklist.v2.bed, Output/BAM/SRR5479624.removeddup.bam
+    wildcards: SRR=SRR5479624
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        bamCoverage --bam Output/BAM/SRR5479624.removeddup.bam -o Output/coverage/SRR5479624.coverage.bw         --blackListFileName genome/GRCm38-blacklist.v2.bed         --binSize 20 --smoothLength 60 --extendReads          --maxFragmentLength 700 --minMappingQuality 12         --normalizeUsing "CPM" --numberOfProcessors 1         > logs/SRR5479624_bamcov.out 2> logs/SRR5479624_bamcov.err
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule peakcalling:
+    input: Output/BAM/SRR6956534.removeddup.bam, genome/GRCm38-blacklist.v2.bed
+    output: Output/peaks/SRR6956534_filtered.bed, logs/SRR6956534_macs2.out, logs/SRR6956534_macs2.err
+    jobid: 25
+    reason: Missing output files: Output/peaks/SRR6956534_filtered.bed; Input files updated by another job: genome/GRCm38-blacklist.v2.bed, Output/BAM/SRR6956534.removeddup.bam
+    wildcards: SRR=SRR6956534
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        macs2 callpeak --treatment Output/BAM/SRR6956534.removeddup.bam --name SRR6956534         --gsize 1.87e9 --format BAMPE --nomodel --nolambda         --cutoff-analysis --broad --broad-cutoff 0.001 --pvalue 0.001         --outdir Output/peaks > logs/SRR6956534_macs2.out 2> logs/SRR6956534_macs2.err
+
+        bedtools intersect -v -a "Output/peaks/SRR6956534_peaks.broadPeak"         -b genome/GRCm38-blacklist.v2.bed | cut -f 1,2,3 > Output/peaks/SRR6956534_filtered.bed
+
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule scaled_matrix:
+    input: Output/coverage/SRR6956534.coverage.bw, genome/genome.gtf
+    output: Output/matrix/SRR6956534.scaled_matrix.gz, logs/SRR6956534_scaled_mat.out, logs/SRR6956534_scaled_mat.err
+    jobid: 57
+    reason: Missing output files: Output/matrix/SRR6956534.scaled_matrix.gz; Input files updated by another job: Output/coverage/SRR6956534.coverage.bw, genome/genome.gtf
+    wildcards: SRR=SRR6956534
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        computeMatrix scale-regions         --numberOfProcessors 1         -S Output/coverage/SRR6956534.coverage.bw -R genome/genome.gtf         --binSize 20 --skipZeros         --downstream 2000 --upstream 2000         --regionBodyLength 4000         -o Output/matrix/SRR6956534.scaled_matrix.gz         > logs/SRR6956534_scaled_mat.out 2> logs/SRR6956534_scaled_mat.err
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule scaled_matrix:
+    input: Output/coverage/SRR2147247.coverage.bw, genome/genome.gtf
+    output: Output/matrix/SRR2147247.scaled_matrix.gz, logs/SRR2147247_scaled_mat.out, logs/SRR2147247_scaled_mat.err
+    jobid: 59
+    reason: Missing output files: Output/matrix/SRR2147247.scaled_matrix.gz; Input files updated by another job: Output/coverage/SRR2147247.coverage.bw, genome/genome.gtf
+    wildcards: SRR=SRR2147247
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        computeMatrix scale-regions         --numberOfProcessors 1         -S Output/coverage/SRR2147247.coverage.bw -R genome/genome.gtf         --binSize 20 --skipZeros         --downstream 2000 --upstream 2000         --regionBodyLength 4000         -o Output/matrix/SRR2147247.scaled_matrix.gz         > logs/SRR2147247_scaled_mat.out 2> logs/SRR2147247_scaled_mat.err
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule TSSmatrix:
+    input: Output/coverage/SRR2147247.coverage.bw, genome/genome.gtf
+    output: Output/matrix/SRR2147247.TSS_matrix.gz, logs/SRR2147247_TSSmat.out, logs/SRR2147247_TSSmat.err
+    jobid: 48
+    reason: Missing output files: Output/matrix/SRR2147247.TSS_matrix.gz; Input files updated by another job: Output/coverage/SRR2147247.coverage.bw, genome/genome.gtf
+    wildcards: SRR=SRR2147247
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        computeMatrix reference-point         --numberOfProcessors 1         -S Output/coverage/SRR2147247.coverage.bw -R genome/genome.gtf         --referencePoint 'TSS'         --binSize 20 --skipZeros         --downstream 2000 --upstream 2000         -o Output/matrix/SRR2147247.TSS_matrix.gz         > logs/SRR2147247_TSSmat.out 2> logs/SRR2147247_TSSmat.err
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule TSSmatrix:
+    input: Output/coverage/SRR5479624.coverage.bw, genome/genome.gtf
+    output: Output/matrix/SRR5479624.TSS_matrix.gz, logs/SRR5479624_TSSmat.out, logs/SRR5479624_TSSmat.err
+    jobid: 39
+    reason: Missing output files: Output/matrix/SRR5479624.TSS_matrix.gz; Input files updated by another job: genome/genome.gtf, Output/coverage/SRR5479624.coverage.bw
+    wildcards: SRR=SRR5479624
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        computeMatrix reference-point         --numberOfProcessors 1         -S Output/coverage/SRR5479624.coverage.bw -R genome/genome.gtf         --referencePoint 'TSS'         --binSize 20 --skipZeros         --downstream 2000 --upstream 2000         -o Output/matrix/SRR5479624.TSS_matrix.gz         > logs/SRR5479624_TSSmat.out 2> logs/SRR5479624_TSSmat.err
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule multisummary:
+    input: Output/coverage/SRR5479623.coverage.bw, Output/coverage/SRR5479624.coverage.bw, Output/coverage/SRR6956533.coverage.bw, Output/coverage/SRR6956534.coverage.bw, Output/coverage/SRR2147247.coverage.bw, genome/GRCm38-blacklist.v2.bed
+    output: Output/results/scores_per_bin.npz, Output/results/scores_per_bin.tab
+    jobid: 67
+    reason: Missing output files: Output/results/scores_per_bin.npz; Input files updated by another job: Output/coverage/SRR2147247.coverage.bw, genome/GRCm38-blacklist.v2.bed, Output/coverage/SRR6956533.coverage.bw, Output/coverage/SRR5479623.coverage.bw, Output/coverage/SRR6956534.coverage.bw, Output/coverage/SRR5479624.coverage.bw
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        multiBigwigSummary bins --numberOfProcessors 1         --bwfiles Output/coverage/SRR5479623.coverage.bw Output/coverage/SRR5479624.coverage.bw Output/coverage/SRR6956533.coverage.bw Output/coverage/SRR6956534.coverage.bw Output/coverage/SRR2147247.coverage.bw         --blackListFileName genome/GRCm38-blacklist.v2.bed --smartLabels         --outFileName  Output/results/scores_per_bin.npz         --outRawCounts Output/results/scores_per_bin.tab
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule TSSmatrix:
+    input: Output/coverage/SRR6956534.coverage.bw, genome/genome.gtf
+    output: Output/matrix/SRR6956534.TSS_matrix.gz, logs/SRR6956534_TSSmat.out, logs/SRR6956534_TSSmat.err
+    jobid: 45
+    reason: Missing output files: Output/matrix/SRR6956534.TSS_matrix.gz; Input files updated by another job: Output/coverage/SRR6956534.coverage.bw, genome/genome.gtf
+    wildcards: SRR=SRR6956534
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        computeMatrix reference-point         --numberOfProcessors 1         -S Output/coverage/SRR6956534.coverage.bw -R genome/genome.gtf         --referencePoint 'TSS'         --binSize 20 --skipZeros         --downstream 2000 --upstream 2000         -o Output/matrix/SRR6956534.TSS_matrix.gz         > logs/SRR6956534_TSSmat.out 2> logs/SRR6956534_TSSmat.err
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule TSSmatrix:
+    input: Output/coverage/SRR5479623.coverage.bw, genome/genome.gtf
+    output: Output/matrix/SRR5479623.TSS_matrix.gz, logs/SRR5479623_TSSmat.out, logs/SRR5479623_TSSmat.err
+    jobid: 36
+    reason: Missing output files: Output/matrix/SRR5479623.TSS_matrix.gz; Input files updated by another job: Output/coverage/SRR5479623.coverage.bw, genome/genome.gtf
+    wildcards: SRR=SRR5479623
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        computeMatrix reference-point         --numberOfProcessors 1         -S Output/coverage/SRR5479623.coverage.bw -R genome/genome.gtf         --referencePoint 'TSS'         --binSize 20 --skipZeros         --downstream 2000 --upstream 2000         -o Output/matrix/SRR5479623.TSS_matrix.gz         > logs/SRR5479623_TSSmat.out 2> logs/SRR5479623_TSSmat.err
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule scaled_matrix:
+    input: Output/coverage/SRR5479623.coverage.bw, genome/genome.gtf
+    output: Output/matrix/SRR5479623.scaled_matrix.gz, logs/SRR5479623_scaled_mat.out, logs/SRR5479623_scaled_mat.err
+    jobid: 51
+    reason: Missing output files: Output/matrix/SRR5479623.scaled_matrix.gz; Input files updated by another job: Output/coverage/SRR5479623.coverage.bw, genome/genome.gtf
+    wildcards: SRR=SRR5479623
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        computeMatrix scale-regions         --numberOfProcessors 1         -S Output/coverage/SRR5479623.coverage.bw -R genome/genome.gtf         --binSize 20 --skipZeros         --downstream 2000 --upstream 2000         --regionBodyLength 4000         -o Output/matrix/SRR5479623.scaled_matrix.gz         > logs/SRR5479623_scaled_mat.out 2> logs/SRR5479623_scaled_mat.err
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule jaccard:
+    input: Output/peaks/SRR5479623_filtered.bed, Output/peaks/SRR5479624_filtered.bed, Output/peaks/SRR6956533_filtered.bed, Output/peaks/SRR6956534_filtered.bed, Output/peaks/SRR2147247_filtered.bed
+    output: Output/results/heatmap_Jaccard_peaks.pdf
+    jobid: 68
+    reason: Missing output files: Output/results/heatmap_Jaccard_peaks.pdf; Input files updated by another job: Output/peaks/SRR5479624_filtered.bed, Output/peaks/SRR6956533_filtered.bed, Output/peaks/SRR5479623_filtered.bed, Output/peaks/SRR6956534_filtered.bed, Output/peaks/SRR2147247_filtered.bed
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        Rscript --vanilla scripts/jaccard.R Output/peaks/SRR5479623_filtered.bed Output/peaks/SRR5479624_filtered.bed Output/peaks/SRR6956533_filtered.bed Output/peaks/SRR6956534_filtered.bed Output/peaks/SRR2147247_filtered.bed Output/results/heatmap_Jaccard_peaks.pdf
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule scaled_matrix:
+    input: Output/coverage/SRR5479624.coverage.bw, genome/genome.gtf
+    output: Output/matrix/SRR5479624.scaled_matrix.gz, logs/SRR5479624_scaled_mat.out, logs/SRR5479624_scaled_mat.err
+    jobid: 53
+    reason: Missing output files: Output/matrix/SRR5479624.scaled_matrix.gz; Input files updated by another job: genome/genome.gtf, Output/coverage/SRR5479624.coverage.bw
+    wildcards: SRR=SRR5479624
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        computeMatrix scale-regions         --numberOfProcessors 1         -S Output/coverage/SRR5479624.coverage.bw -R genome/genome.gtf         --binSize 20 --skipZeros         --downstream 2000 --upstream 2000         --regionBodyLength 4000         -o Output/matrix/SRR5479624.scaled_matrix.gz         > logs/SRR5479624_scaled_mat.out 2> logs/SRR5479624_scaled_mat.err
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule TSSmatrix:
+    input: Output/coverage/SRR6956533.coverage.bw, genome/genome.gtf
+    output: Output/matrix/SRR6956533.TSS_matrix.gz, logs/SRR6956533_TSSmat.out, logs/SRR6956533_TSSmat.err
+    jobid: 42
+    reason: Missing output files: Output/matrix/SRR6956533.TSS_matrix.gz; Input files updated by another job: genome/genome.gtf, Output/coverage/SRR6956533.coverage.bw
+    wildcards: SRR=SRR6956533
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        computeMatrix reference-point         --numberOfProcessors 1         -S Output/coverage/SRR6956533.coverage.bw -R genome/genome.gtf         --referencePoint 'TSS'         --binSize 20 --skipZeros         --downstream 2000 --upstream 2000         -o Output/matrix/SRR6956533.TSS_matrix.gz         > logs/SRR6956533_TSSmat.out 2> logs/SRR6956533_TSSmat.err
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule scaled_matrix:
+    input: Output/coverage/SRR6956533.coverage.bw, genome/genome.gtf
+    output: Output/matrix/SRR6956533.scaled_matrix.gz, logs/SRR6956533_scaled_mat.out, logs/SRR6956533_scaled_mat.err
+    jobid: 55
+    reason: Missing output files: Output/matrix/SRR6956533.scaled_matrix.gz; Input files updated by another job: genome/genome.gtf, Output/coverage/SRR6956533.coverage.bw
+    wildcards: SRR=SRR6956533
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        computeMatrix scale-regions         --numberOfProcessors 1         -S Output/coverage/SRR6956533.coverage.bw -R genome/genome.gtf         --binSize 20 --skipZeros         --downstream 2000 --upstream 2000         --regionBodyLength 4000         -o Output/matrix/SRR6956533.scaled_matrix.gz         > logs/SRR6956533_scaled_mat.out 2> logs/SRR6956533_scaled_mat.err
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule TSSplot:
+    input: Output/matrix/SRR6956534.TSS_matrix.gz
+    output: Output/metaplots/SRR6956534.TSS_plot.png
+    jobid: 44
+    reason: Missing output files: Output/metaplots/SRR6956534.TSS_plot.png; Input files updated by another job: Output/matrix/SRR6956534.TSS_matrix.gz
+    wildcards: SRR=SRR6956534
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        plotProfile -m Output/matrix/SRR6956534.TSS_matrix.gz --plotHeight 10 --plotWidth 12 -o Output/metaplots/SRR6956534.TSS_plot.png
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule TSSplot:
+    input: Output/matrix/SRR5479623.TSS_matrix.gz
+    output: Output/metaplots/SRR5479623.TSS_plot.png
+    jobid: 35
+    reason: Missing output files: Output/metaplots/SRR5479623.TSS_plot.png; Input files updated by another job: Output/matrix/SRR5479623.TSS_matrix.gz
+    wildcards: SRR=SRR5479623
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        plotProfile -m Output/matrix/SRR5479623.TSS_matrix.gz --plotHeight 10 --plotWidth 12 -o Output/metaplots/SRR5479623.TSS_plot.png
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule scaled_plot:
+    input: Output/matrix/SRR5479623.scaled_matrix.gz
+    output: Output/metaplots/SRR5479623.scaled_plot.png
+    jobid: 50
+    reason: Missing output files: Output/metaplots/SRR5479623.scaled_plot.png; Input files updated by another job: Output/matrix/SRR5479623.scaled_matrix.gz
+    wildcards: SRR=SRR5479623
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        plotProfile -m Output/matrix/SRR5479623.scaled_matrix.gz --plotHeight 10 --plotWidth 14 -o Output/metaplots/SRR5479623.scaled_plot.png
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule scaled_plot:
+    input: Output/matrix/SRR5479624.scaled_matrix.gz
+    output: Output/metaplots/SRR5479624.scaled_plot.png
+    jobid: 52
+    reason: Missing output files: Output/metaplots/SRR5479624.scaled_plot.png; Input files updated by another job: Output/matrix/SRR5479624.scaled_matrix.gz
+    wildcards: SRR=SRR5479624
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        plotProfile -m Output/matrix/SRR5479624.scaled_matrix.gz --plotHeight 10 --plotWidth 14 -o Output/metaplots/SRR5479624.scaled_plot.png
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule TSSplot:
+    input: Output/matrix/SRR6956533.TSS_matrix.gz
+    output: Output/metaplots/SRR6956533.TSS_plot.png
+    jobid: 41
+    reason: Missing output files: Output/metaplots/SRR6956533.TSS_plot.png; Input files updated by another job: Output/matrix/SRR6956533.TSS_matrix.gz
+    wildcards: SRR=SRR6956533
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        plotProfile -m Output/matrix/SRR6956533.TSS_matrix.gz --plotHeight 10 --plotWidth 12 -o Output/metaplots/SRR6956533.TSS_plot.png
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule correlation:
+    input: Output/results/scores_per_bin.npz
+    output: Output/results/SpearmanCorr_readCounts.tab, Output/results/heatmap_SpearmanCorr_readCounts.png
+    jobid: 66
+    reason: Missing output files: Output/results/SpearmanCorr_readCounts.tab; Input files updated by another job: Output/results/scores_per_bin.npz
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        plotCorrelation         --corData Output/results/scores_per_bin.npz         --corMethod spearman --skipZeros         --plotTitle "Spearman Correlation of Read Counts"         --whatToPlot heatmap --colorMap RdBu_r --plotNumbers         --plotHeight 14.25 --plotWidth 16.5         -o Output/results/heatmap_SpearmanCorr_readCounts.png           --outFileCorMatrix Output/results/SpearmanCorr_readCounts.tab
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule scaled_plot:
+    input: Output/matrix/SRR6956533.scaled_matrix.gz
+    output: Output/metaplots/SRR6956533.scaled_plot.png
+    jobid: 54
+    reason: Missing output files: Output/metaplots/SRR6956533.scaled_plot.png; Input files updated by another job: Output/matrix/SRR6956533.scaled_matrix.gz
+    wildcards: SRR=SRR6956533
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        plotProfile -m Output/matrix/SRR6956533.scaled_matrix.gz --plotHeight 10 --plotWidth 14 -o Output/metaplots/SRR6956533.scaled_plot.png
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule scaled_plot:
+    input: Output/matrix/SRR6956534.scaled_matrix.gz
+    output: Output/metaplots/SRR6956534.scaled_plot.png
+    jobid: 56
+    reason: Missing output files: Output/metaplots/SRR6956534.scaled_plot.png; Input files updated by another job: Output/matrix/SRR6956534.scaled_matrix.gz
+    wildcards: SRR=SRR6956534
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        plotProfile -m Output/matrix/SRR6956534.scaled_matrix.gz --plotHeight 10 --plotWidth 14 -o Output/metaplots/SRR6956534.scaled_plot.png
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule scaled_plot:
+    input: Output/matrix/SRR2147247.scaled_matrix.gz
+    output: Output/metaplots/SRR2147247.scaled_plot.png
+    jobid: 58
+    reason: Missing output files: Output/metaplots/SRR2147247.scaled_plot.png; Input files updated by another job: Output/matrix/SRR2147247.scaled_matrix.gz
+    wildcards: SRR=SRR2147247
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        plotProfile -m Output/matrix/SRR2147247.scaled_matrix.gz --plotHeight 10 --plotWidth 14 -o Output/metaplots/SRR2147247.scaled_plot.png
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule TSSplot:
+    input: Output/matrix/SRR2147247.TSS_matrix.gz
+    output: Output/metaplots/SRR2147247.TSS_plot.png
+    jobid: 47
+    reason: Missing output files: Output/metaplots/SRR2147247.TSS_plot.png; Input files updated by another job: Output/matrix/SRR2147247.TSS_matrix.gz
+    wildcards: SRR=SRR2147247
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        plotProfile -m Output/matrix/SRR2147247.TSS_matrix.gz --plotHeight 10 --plotWidth 12 -o Output/metaplots/SRR2147247.TSS_plot.png
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule TSSplot:
+    input: Output/matrix/SRR5479624.TSS_matrix.gz
+    output: Output/metaplots/SRR5479624.TSS_plot.png
+    jobid: 38
+    reason: Missing output files: Output/metaplots/SRR5479624.TSS_plot.png; Input files updated by another job: Output/matrix/SRR5479624.TSS_matrix.gz
+    wildcards: SRR=SRR5479624
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        plotProfile -m Output/matrix/SRR5479624.TSS_matrix.gz --plotHeight 10 --plotWidth 12 -o Output/metaplots/SRR5479624.TSS_plot.png
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule plot_corr:
+    input: Output/results/SpearmanCorr_readCounts.tab
+    output: Output/results/heatmap_SpearmanCorr_readCounts.pdf
+    jobid: 65
+    reason: Missing output files: Output/results/heatmap_SpearmanCorr_readCounts.pdf; Input files updated by another job: Output/results/SpearmanCorr_readCounts.tab
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        Rscript --vanilla scripts/corr_plot.R Output/results/SpearmanCorr_readCounts.tab Output/results/heatmap_SpearmanCorr_readCounts.pdf
+        
+
+[Tue Feb 28 11:10:07 2023]
+rule multiqc:
+    input: Output/fastqc/SRR5479623_1_fastqc.html, Output/fastqc/SRR5479624_1_fastqc.html, Output/fastqc/SRR6956533_1_fastqc.html, Output/fastqc/SRR6956534_1_fastqc.html, Output/fastqc/SRR2147247_1_fastqc.html, Output/peaks/SRR5479623_filtered.bed, Output/peaks/SRR5479624_filtered.bed, Output/peaks/SRR6956533_filtered.bed, Output/peaks/SRR6956534_filtered.bed, Output/peaks/SRR2147247_filtered.bed, Output/metaplots/SRR5479623.TSS_plot.png, Output/metaplots/SRR5479624.TSS_plot.png, Output/metaplots/SRR6956533.TSS_plot.png, Output/metaplots/SRR6956534.TSS_plot.png, Output/metaplots/SRR2147247.TSS_plot.png, Output/metaplots/SRR5479623.scaled_plot.png, Output/metaplots/SRR5479624.scaled_plot.png, Output/metaplots/SRR6956533.scaled_plot.png, Output/metaplots/SRR6956534.scaled_plot.png, Output/metaplots/SRR2147247.scaled_plot.png, Output/fragsize/SRR5479623.fragmentsize.png, Output/fragsize/SRR5479624.fragmentsize.png, Output/fragsize/SRR6956533.fragmentsize.png, Output/fragsize/SRR6956534.fragmentsize.png, Output/fragsize/SRR2147247.fragmentsize.png, Output/results/heatmap_SpearmanCorr_readCounts.pdf, Output/results/heatmap_Jaccard_peaks.pdf
+    output: multiqc_report.html
+    jobid: 1
+    reason: Missing output files: multiqc_report.html; Input files updated by another job: Output/metaplots/SRR5479623.scaled_plot.png, Output/metaplots/SRR6956534.TSS_plot.png, Output/fragsize/SRR6956534.fragmentsize.png, Output/peaks/SRR6956534_filtered.bed, Output/results/heatmap_Jaccard_peaks.pdf, Output/metaplots/SRR5479623.TSS_plot.png, Output/metaplots/SRR5479624.scaled_plot.png, Output/results/heatmap_SpearmanCorr_readCounts.pdf, Output/fragsize/SRR5479624.fragmentsize.png, Output/fragsize/SRR5479623.fragmentsize.png, Output/fragsize/SRR6956533.fragmentsize.png, Output/metaplots/SRR2147247.scaled_plot.png, Output/metaplots/SRR2147247.TSS_plot.png, Output/peaks/SRR6956533_filtered.bed, Output/fastqc/SRR5479624_1_fastqc.html, Output/fastqc/SRR5479623_1_fastqc.html, Output/peaks/SRR2147247_filtered.bed, Output/fragsize/SRR2147247.fragmentsize.png, Output/fastqc/SRR6956533_1_fastqc.html, Output/metaplots/SRR6956533.scaled_plot.png, Output/metaplots/SRR5479624.TSS_plot.png, Output/peaks/SRR5479624_filtered.bed, Output/metaplots/SRR6956534.scaled_plot.png, Output/fastqc/SRR6956534_1_fastqc.html, Output/peaks/SRR5479623_filtered.bed, Output/fastqc/SRR2147247_1_fastqc.html, Output/metaplots/SRR6956533.TSS_plot.png
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+
+        multiqc . --config configs/multiqc_config.yaml
+        
+
+[Tue Feb 28 11:10:07 2023]
+localrule all:
+    input: multiqc_report.html
+    jobid: 0
+    reason: Input files updated by another job: multiqc_report.html
+    resources: tmpdir=/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T
+
+Job stats:
+job                 count    min threads    max threads
+----------------  -------  -------------  -------------
+TSSmatrix               5              1              1
+TSSplot                 5              1              1
+all                     1              1              1
+bamcoverage             5              1              1
+bowtie2                 5              1              1
+bowtie2_index           1              1              1
+correlation             1              1              1
+fastqc                  5              1              1
+fragsize                5              1              1
+get_blacklist           1              1              1
+get_genome_files        1              1              1
+jaccard                 1              1              1
+multiqc                 1              1              1
+multisummary            1              1              1
+peakcalling             5              1              1
+picard                  5              1              1
+plot_corr               1              1              1
+samtools                5              1              1
+scaled_matrix           5              1              1
+scaled_plot             5              1              1
+trim_galore             5              1              1
+total                  69              1              1
+
+Reasons:
+    (check individual jobs above for details)
+    input files updated by another job:
+        TSSmatrix, TSSplot, all, bamcoverage, bowtie2, bowtie2_index, correlation, fragsize, jaccard, multiqc, multisummary, peakcalling, picard, plot_corr, samtools, scaled_matrix, scaled_plot
+    missing output files:
+        TSSmatrix, TSSplot, bamcoverage, bowtie2, bowtie2_index, correlation, fastqc, fragsize, get_blacklist, get_genome_files, jaccard, multiqc, multisummary, peakcalling, picard, plot_corr, samtools, scaled_matrix, scaled_plot, trim_galore
+
+This was a dry-run (flag -n). The order of jobs does not reflect the order of execution.

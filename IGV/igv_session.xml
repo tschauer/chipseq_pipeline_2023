@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Session genome="mm10" locus="chr2:80151520-80919528" version="8">
+    <Resources>
+        <Resource path="../Output/coverage/SRR2147247.coverage.bw" type="bw"/>
+        <Resource path="../Output/coverage/SRR6956534.coverage.bw" type="bw"/>
+        <Resource path="../Output/coverage/SRR6956533.coverage.bw" type="bw"/>
+        <Resource path="../Output/peaks/SRR5479624_filtered.bed" type="bed"/>
+        <Resource path="../genome/mm10-blacklist.v2.bed" type="bed"/>
+        <Resource path="../Output/peaks/SRR6956534_filtered.bed" type="bed"/>
+        <Resource path="../Output/peaks/SRR2147247_filtered.bed" type="bed"/>
+        <Resource path="../Output/peaks/SRR6956533_filtered.bed" type="bed"/>
+        <Resource path="../Output/peaks/SRR5479623_filtered.bed" type="bed"/>
+        <Resource path="../Output/coverage/SRR5479623.coverage.bw" type="bw"/>
+        <Resource path="../Output/coverage/SRR5479624.coverage.bw" type="bw"/>
+    </Resources>
+    <Panel height="403" name="DataPanel" width="915">
+        <Track attributeKey="SRR2147247.coverage.bw" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="213,94,0" fontSize="10" id="/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/Output/coverage/SRR2147247.coverage.bw" name="SRR2147247.coverage.bw" renderer="BAR_CHART" visible="true" windowFunction="none">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="2.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="SRR2147247_filtered.bed" clazz="org.broad.igv.track.FeatureTrack" color="213,94,0" fontSize="10" groupByStrand="false" id="/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/Output/peaks/SRR2147247_filtered.bed" name="SRR2147247_filtered.bed" visible="true"/>
+        <Track attributeKey="SRR6956533.coverage.bw" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="230,159,0" fontSize="10" id="/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/Output/coverage/SRR6956533.coverage.bw" name="SRR6956533.coverage.bw" renderer="BAR_CHART" visible="true" windowFunction="none">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="1.5" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="SRR6956533_filtered.bed" clazz="org.broad.igv.track.FeatureTrack" color="230,159,0" fontSize="10" groupByStrand="false" id="/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/Output/peaks/SRR6956533_filtered.bed" name="SRR6956533_filtered.bed" visible="true"/>
+        <Track attributeKey="SRR6956534.coverage.bw" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="230,159,0" fontSize="10" id="/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/Output/coverage/SRR6956534.coverage.bw" name="SRR6956534.coverage.bw" renderer="BAR_CHART" visible="true" windowFunction="none">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="1.5" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="SRR6956534_filtered.bed" clazz="org.broad.igv.track.FeatureTrack" color="230,159,0" fontSize="10" groupByStrand="false" id="/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/Output/peaks/SRR6956534_filtered.bed" name="SRR6956534_filtered.bed" visible="true"/>
+        <Track attributeKey="SRR5479623.coverage.bw" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,114,178" fontSize="10" id="/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/Output/coverage/SRR5479623.coverage.bw" name="SRR5479623.coverage.bw" renderer="BAR_CHART" visible="true" windowFunction="none">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="1.5" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="SRR5479623_filtered.bed" clazz="org.broad.igv.track.FeatureTrack" color="0,114,178" fontSize="10" groupByStrand="false" id="/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/Output/peaks/SRR5479623_filtered.bed" name="SRR5479623_filtered.bed" visible="true"/>
+        <Track attributeKey="SRR5479624.coverage.bw" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,114,178" fontSize="10" id="/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/Output/coverage/SRR5479624.coverage.bw" name="SRR5479624.coverage.bw" renderer="BAR_CHART" visible="true" windowFunction="none">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="1.5" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="SRR5479624_filtered.bed" clazz="org.broad.igv.track.FeatureTrack" color="0,114,178" fontSize="10" groupByStrand="false" id="/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/Output/peaks/SRR5479624_filtered.bed" name="SRR5479624_filtered.bed" visible="true"/>
+    </Panel>
+    <Panel height="89" name="FeaturePanel" width="915">
+        <Track attributeKey="Reference sequence" clazz="org.broad.igv.track.SequenceTrack" fontSize="10" id="Reference sequence" name="Reference sequence" sequenceTranslationStrandValue="POSITIVE" shouldShowTranslation="false" visible="true"/>
+        <Track attributeKey="mm10-blacklist.v2.bed" clazz="org.broad.igv.track.FeatureTrack" color="51,51,51" fontSize="10" groupByStrand="false" id="/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/genome/mm10-blacklist.v2.bed" name="mm10-blacklist.v2.bed" visible="true"/>
+        <Track attributeKey="Refseq Genes" clazz="org.broad.igv.track.FeatureTrack" color="51,51,51" fontSize="10" groupByStrand="false" id="https://s3.amazonaws.com/igv.org.genomes/mm10/ncbiRefSeq.sorted.txt.gz" name="Refseq Genes" visible="true"/>
+    </Panel>
+    <PanelLayout dividerFractions="0.811623246492986"/>
+    <HiddenAttributes>
+        <Attribute name="DATA FILE"/>
+        <Attribute name="DATA TYPE"/>
+        <Attribute name="NAME"/>
+    </HiddenAttributes>
+</Session>

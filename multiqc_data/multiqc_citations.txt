@@ -1,0 +1,10 @@
+10.1093/bioinformatics/btw354                      # MultiQC
+10.1093/nar/gkw257                                 # deepTools
+10.1101/496521                                     # macs
+10.1186/gb-2008-9-9-r137                           # macs
+10.1093/bioinformatics/btp352                      # Samtools
+10.1038/nmeth.1923                                 # bowtie2
+10.1038/nmeth.3317                                 # bowtie2
+10.1038/s41587-019-0201-4                          # bowtie2
+10.14806/ej.17.1.200                               # cutadapt
+

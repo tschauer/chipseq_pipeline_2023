@@ -1,0 +1,46 @@
+
+
+Sample label: SRR6956534
+Sample size: 12300
+
+Fragment lengths:
+Min.: 23.0
+1st Qu.: 69.0
+Mean: 115.43918699186992
+Median: 85.0
+3rd Qu.: 120.0
+Max.: 783.0
+Std: 83.27112223161761
+MAD: 24.0
+Len. 10%: 59.0
+Len. 20%: 67.0
+Len. 30%: 71.0
+Len. 40%: 77.0
+Len. 60%: 105.0
+Len. 70%: 114.0
+Len. 80%: 146.0
+Len. 90%: 207.0
+Len. 99%: 473.0
+
+
+Read lengths:
+Sample size: 12300
+
+Min.: 22.0
+1st Qu.: 67.0
+Mean: 93.63569105691057
+Median: 82.0
+3rd Qu.: 116.0
+Max.: 150.0
+Std: 34.50625786490783
+MAD: 24.0
+Len. 10%: 55.0
+Len. 20%: 63.0
+Len. 30%: 69.0
+Len. 40%: 74.0
+Len. 60%: 100.0
+Len. 70%: 112.0
+Len. 80%: 136.0
+Len. 90%: 150.0
+Len. 99%: 150.0
+

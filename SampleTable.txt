@@ -1,0 +1,6 @@
+Run	Stage	Assay	Source	Description	SampleName	Layout
+test_SRR5479623	mESC	H3K9me3	Wang2018	mouse embryonic stem cells	GSM2588589	PAIRED
+test_SRR5479624	mESC	H3K9me3	Wang2018	mouse embryonic stem cells	GSM2588590	PAIRED
+test_SRR6956533	mESC	H3K36me3	Xu2019	mouse embryonic stem cells	GSM3084635	PAIRED
+test_SRR6956534	mESC	H3K36me3	Xu2019	mouse embryonic stem cells	GSM3084636	PAIRED
+test_SRR2147247	mESC	H3K4me3	Zhang2016	mouse embryonic stem cells	GSM1845286	PAIRED

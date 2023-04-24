@@ -1,0 +1,39 @@
+[2023-02-28 11:03:04,744] multiqc                                            [DEBUG  ]  This is MultiQC v1.14
+[2023-02-28 11:03:04,745] multiqc                                            [DEBUG  ]  Loading config settings from: configs/multiqc_config.yaml
+[2023-02-28 11:03:04,746] multiqc                                            [DEBUG  ]  New config: {'samtools_idxstats_fraction_cutoff': 1e-07}
+[2023-02-28 11:03:04,746] multiqc                                            [DEBUG  ]  Command used: /Users/tamas.schauer/miniconda3/envs/env_chipseq_pipeline/bin/multiqc . --config configs/multiqc_config.yaml
+[2023-02-28 11:03:05,786] multiqc                                            [DEBUG  ]  Latest MultiQC version is v1.14
+[2023-02-28 11:03:05,786] multiqc                                            [DEBUG  ]  Working dir : /Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline
+[2023-02-28 11:03:05,786] multiqc                                            [DEBUG  ]  Template    : default
+[2023-02-28 11:03:05,786] multiqc                                            [DEBUG  ]  Running Python 3.10.9 | packaged by conda-forge | (main, Feb  2 2023, 20:24:27) [Clang 14.0.6 ]
+[2023-02-28 11:03:05,787] multiqc                                            [DEBUG  ]  Analysing modules: custom_content, ccs, ngsderive, purple, conpair, lima, peddy, somalier, methylQA, mosdepth, phantompeakqualtools, qualimap, preseq, hifiasm, quast, qorts, rna_seqc, rockhopper, rsem, rseqc, busco, bustools, goleft_indexcov, gffcompare, disambiguate, supernova, deeptools, sargasso, verifybamid, mirtrace, happy, mirtop, sambamba, gopeaks, homer, hops, macs2, theta2, snpeff, gatk, htseq, bcftools, featureCounts, fgbio, dragen, dragen_fastqc, dedup, pbmarkdup, damageprofiler, biobambam2, jcvi, mtnucratio, picard, vep, sentieon, prokka, qc3C, nanostat, samblaster, samtools, sexdeterrmine, eigenstratdatabasetools, bamtools, jellyfish, vcftools, longranger, stacks, varscan2, snippy, umitools, bbmap, bismark, biscuit, diamond, hicexplorer, hicup, hicpro, salmon, kallisto, slamdunk, star, hisat2, tophat, bowtie2, bowtie1, cellranger, snpsplit, odgi, pangolin, nextclade, humid, kat, leehom, adapterRemoval, bbduk, clipandmerge, cutadapt, flexbar, kaiju, kraken, malt, motus, trimmomatic, sickle, skewer, sortmerna, biobloomtools, fastq_screen, afterqc, fastp, fastqc, filtlong, prinseqplusplus, pychopper, porechop, pycoqc, minionqc, anglerfish, multivcfanalyzer, clusterflow, checkqc, bcl2fastq, bclconvert, interop, ivar, flash, seqyclean, optitype, whatshap
+[2023-02-28 11:03:05,787] multiqc                                            [DEBUG  ]  Using temporary directory for creating report: /var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T/tmpg9hrf86x
+[2023-02-28 11:03:05,847] multiqc                                            [INFO   ]  Search path : /Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline
+[2023-02-28 11:03:16,554] multiqc                                            [DEBUG  ]  Summary of files that were skipped by the search: [skipped_module_specific_max_filesize: 459] // [skipped_file_contents_search_errors: 335] // [skipped_no_match: 210] // [skipped_ignore_pattern: 64] // [skipped_filesize_limit: 24] // [skipped_directory_fn_ignore_dirs: 5]
+[2023-02-28 11:03:16,820] multiqc.plots.bargraph                             [DEBUG  ]  Using matplotlib version 3.7.0
+[2023-02-28 11:03:16,823] multiqc.plots.linegraph                            [DEBUG  ]  Using matplotlib version 3.7.0
+[2023-02-28 11:03:16,824] multiqc                                            [DEBUG  ]  No samples found: custom_content
+[2023-02-28 11:03:16,837] multiqc.modules.deeptools.deeptools                [DEBUG  ]  Found 5 deepTools plotCorrelation samples
+[2023-02-28 11:03:16,837] multiqc.modules.deeptools.deeptools                [INFO   ]  Found 5 total deepTools samples
+[2023-02-28 11:03:17,010] multiqc.modules.macs2.macs2                        [INFO   ]  Found 5 logs
+[2023-02-28 11:03:17,031] multiqc.modules.picard.picard                      [INFO   ]  Found 5 MarkDuplicates reports
+[2023-02-28 11:03:17,043] multiqc.modules.samtools.idxstats                  [INFO   ]  Setting idxstats cutoff to: 9.999999999999999e-06%
+[2023-02-28 11:03:17,046] multiqc.modules.samtools.samtools                  [INFO   ]  Found 5 idxstats reports
+[2023-02-28 11:03:17,052] multiqc.modules.bowtie2.bowtie2                    [INFO   ]  Found 5 reports
+[2023-02-28 11:03:17,085] multiqc.modules.cutadapt.cutadapt                  [DEBUG  ]  Duplicate sample name found! Overwriting: SRR6956534_1
+[2023-02-28 11:03:17,088] multiqc.modules.cutadapt.cutadapt                  [DEBUG  ]  Duplicate sample name found! Overwriting: SRR6956534_2
+[2023-02-28 11:03:17,092] multiqc.modules.cutadapt.cutadapt                  [DEBUG  ]  Duplicate sample name found! Overwriting: SRR6956533_1
+[2023-02-28 11:03:17,096] multiqc.modules.cutadapt.cutadapt                  [DEBUG  ]  Duplicate sample name found! Overwriting: SRR6956533_2
+[2023-02-28 11:03:17,100] multiqc.modules.cutadapt.cutadapt                  [DEBUG  ]  Duplicate sample name found! Overwriting: SRR2147247_1
+[2023-02-28 11:03:17,104] multiqc.modules.cutadapt.cutadapt                  [DEBUG  ]  Duplicate sample name found! Overwriting: SRR2147247_2
+[2023-02-28 11:03:17,107] multiqc.modules.cutadapt.cutadapt                  [DEBUG  ]  Duplicate sample name found! Overwriting: SRR5479624_1
+[2023-02-28 11:03:17,111] multiqc.modules.cutadapt.cutadapt                  [DEBUG  ]  Duplicate sample name found! Overwriting: SRR5479624_2
+[2023-02-28 11:03:17,114] multiqc.modules.cutadapt.cutadapt                  [DEBUG  ]  Duplicate sample name found! Overwriting: SRR5479623_1
+[2023-02-28 11:03:17,118] multiqc.modules.cutadapt.cutadapt                  [DEBUG  ]  Duplicate sample name found! Overwriting: SRR5479623_2
+[2023-02-28 11:03:17,121] multiqc.modules.cutadapt.cutadapt                  [INFO   ]  Found 10 reports
+[2023-02-28 11:03:17,143] multiqc.modules.fastqc.fastqc                      [INFO   ]  Found 5 reports
+[2023-02-28 11:03:17,222] multiqc                                            [INFO   ]  Compressing plot data
+[2023-02-28 11:03:17,339] multiqc                                            [INFO   ]  Report      : multiqc_report.html
+[2023-02-28 11:03:17,339] multiqc                                            [INFO   ]  Data        : multiqc_data
+[2023-02-28 11:03:17,339] multiqc                                            [DEBUG  ]  Moving data file from '/var/folders/z9/tgf582ws1jzbdg6dg1n4rqr1x79xrn/T/tmpg9hrf86x/multiqc_data' to '/Users/tamas.schauer/Projects/MethodsBook/Bioinformatics analysis of ChIP-seq data/pipeline/multiqc_data'
+[2023-02-28 11:03:17,470] multiqc                                            [INFO   ]  MultiQC complete

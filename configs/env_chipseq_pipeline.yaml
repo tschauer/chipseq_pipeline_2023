@@ -1,0 +1,22 @@
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - snakemake-minimal
+  - python
+  - pandas
+  - sra-tools
+  - fastqc
+  - trim-galore
+  - bowtie2
+  - samtools
+  - picard
+  - deeptools
+  - macs2
+  - bedtools
+  - multiqc
+  - wget
+  - graphviz
+  - bioconductor-rtracklayer
+  - bioconductor-ShortRead
+  - r-pheatmap

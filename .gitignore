@@ -1,0 +1,13 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.DS_Store
+.snakemake/*
+tmp/*
+SRA/*
+FastQ/SRR*.gz
+Output/trimmed/*.gz
+Output/BAM/*.bam
+Output/coverage/*
+genome/genome*

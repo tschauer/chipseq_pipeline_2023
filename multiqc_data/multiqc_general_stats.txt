@@ -1,0 +1,26 @@
+Sample	MACS2_mqc-generalstats-macs2-d	MACS2_mqc-generalstats-macs2-treatment_redundant_rate	MACS2_mqc-generalstats-macs2-peak_count	Picard_mqc-generalstats-picard-PERCENT_DUPLICATION	Bowtie 2 / HiSAT2_mqc-generalstats-bowtie_2_hisat2-overall_alignment_rate	Cutadapt_mqc-generalstats-cutadapt-percent_trimmed	FastQC_mqc-generalstats-fastqc-percent_duplicates	FastQC_mqc-generalstats-fastqc-percent_gc	FastQC_mqc-generalstats-fastqc-avg_sequence_length	FastQC_mqc-generalstats-fastqc-median_sequence_length	FastQC_mqc-generalstats-fastqc-percent_fails	FastQC_mqc-generalstats-fastqc-total_sequences
+SRR2147247	137.0	0.0	88529									
+SRR2147247.filtered				0,115704								
+SRR2147247_1						17.938587722893473	33.89746227193665	47.0	101.0	101	9.090909090909092	41990725.0
+SRR2147247_2						42.26858775490195						
+SRR2147247_bowtie2.err					91.97							
+SRR5479623	169.0	0.0	98691									
+SRR5479623.filtered				0,208189								
+SRR5479623_1						7.343479586888712	33.71798029919387	45.0	150.0	150	20.0	40035927.0
+SRR5479623_2						10.362368496342464						
+SRR5479623_bowtie2.err					98.64							
+SRR5479624	164.0	0.0	113184									
+SRR5479624.filtered				0,259548								
+SRR5479624_1						6.462857578603471	37.22278681937943	46.0	150.0	150	20.0	44272154.0
+SRR5479624_2						8.640724505972761						
+SRR5479624_bowtie2.err					97.57							
+SRR6956533	259.0	0.0	52494									
+SRR6956533.filtered				0,147129								
+SRR6956533_1						10.536989398792945	15.317731714972524	44.0	150.0	150	30.0	12053030.0
+SRR6956533_2						30.20805081101322						
+SRR6956533_bowtie2.err					95.09							
+SRR6956534	114.0	0.0	107165									
+SRR6956534.filtered				0,335487								
+SRR6956534_1						37.18337804043023	37.93175877798608	48.0	150.0	150	30.0	28214387.0
+SRR6956534_2						46.508986827654034						
+SRR6956534_bowtie2.err					90.78							
